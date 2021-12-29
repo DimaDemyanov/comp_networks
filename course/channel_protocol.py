@@ -74,7 +74,7 @@ class MsgPipe:
         self.timeout = 1
 
         self.stop_flag = False
-        self.loss_probability = 0.3
+        self.loss_probability = 0.0
         self.msg_queue = MsgQueue(self.loss_probability)
         self.ack_queue = MsgQueue(0)
         self.sender_thread = Thread(target=self.send_message, args=())
@@ -97,7 +97,6 @@ class MsgPipe:
             # print(f"send{message}\n", end="")
 
             while True:
-
                 if self.stop_flag:
                     return
 
@@ -154,6 +153,7 @@ class Connection:
     def stop(self):
         self.right_queue.stop()
         self.left_queue.stop()
+
     @staticmethod
     def __get_message(queue):
         return queue.get_message()
@@ -177,7 +177,3 @@ class Connection:
             self.right_queue.send(message)
             # print(f"send ->: {message}\n")
             return
-
-
-
-

@@ -1,9 +1,6 @@
-
-
 class Topology:
     def __init__(self):
         self.topology = []
-
 
     def __str__2(self):
         res_str = ""
@@ -25,7 +22,6 @@ class Topology:
         res_str += "\n"
         print(res_str, end="")
 
-
     def get_shortest_ways(self, start):
         if len(self.topology) == 0:
             return "ttttrtt"
@@ -41,7 +37,6 @@ class Topology:
         for i in range(len(self.topology)):
             if len(self.topology[i]) == 0:
                 unvisited.pop(i)
-
 
         ways = [[] for i in range(len(self.topology))]
         visited = {}
@@ -88,7 +83,7 @@ class Topology:
         self.topology[index].clear()
         for i in range(len(self.topology)):
             self.topology[i].discard(index)
-        #self.print_nodes()
+        # self.print_nodes()
 
     def add_new_link(self, i, j):
         self.add_new_node(i)
@@ -109,20 +104,19 @@ class Topology:
     pass
 
 
-
 def main():
     topology = Topology()
 
     nodes = ('A', 'B', 'C', 'D', 'E', 'F', 'G')
     nodes_index = {
-             'A': 0,
-             'B': 1,
-             'C': 2,
-             'D': 3,
-             'E': 4,
-             'F': 5,
-             'G': 6
-             }
+        'A': 0,
+        'B': 1,
+        'C': 2,
+        'D': 3,
+        'E': 4,
+        'F': 5,
+        'G': 6
+    }
     distances = {
         'B': {'A': 5, 'D': 1, 'G': 2},
         'A': {'B': 5, 'D': 3, 'E': 12, 'F': 5},
@@ -146,5 +140,7 @@ def main():
     print(ans)
 
     pass
+
+
 if __name__ == '__main__':
     main()
