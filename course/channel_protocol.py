@@ -74,7 +74,7 @@ class MsgPipe:
         self.timeout = 1
 
         self.stop_flag = False
-        self.loss_probability = 0.0
+        self.loss_probability = 0.3
         self.msg_queue = MsgQueue(self.loss_probability)
         self.ack_queue = MsgQueue(0)
         self.sender_thread = Thread(target=self.send_message, args=())
